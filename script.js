@@ -22,6 +22,7 @@ $(document).ready(function () {
     //get the elements by selectors
     var theQuestion = document.querySelector(".question");
     var theAnswers = document.querySelector(".answers");
+    var gameEl = document.querySelector(".game");
     var userAnswer;
 
     //initializing the game
@@ -31,7 +32,19 @@ $(document).ready(function () {
         for (var i = 0; i < questions.length; i++) {
             theQuestion.textContent = questions[i];  
             theAnswers.textContent = choices[i].prompt;
-
+          /* //new div for question
+            var newDiv = document.createElement("div");
+            newDiv.textContent=theQuestion;
+            gameEl.appendChild(newDiv);
+           //new div for answers
+           var anotherDiv = document.createElement("div");
+            anotherDiv.textContent=choices[i].prompt;
+            gameEl.appendChild(anotherDiv);
+           
+           
+           // console.log(theQuestion);
+           // console.log(theAnswers);
+      */
             userAnswer=prompt("Enter letter of your answer: ")
              
              if(userAnswer===choices[i].answer) {
