@@ -71,10 +71,12 @@
       width:70%;
       left:15%;
   }
-  .answers {
+  .questionContent {
       text-align: left;
       position: absolute;
       top:50%;
       width:80%;
       left:10%;
+      font-size: 20px;
+      line-height: 30px;
   }
