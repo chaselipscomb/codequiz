@@ -27,59 +27,70 @@ $(document).ready(function () {
   var c = document.querySelector("#c");
   var d = document.querySelector("#d");
   var gameEl = document.querySelector(".game");
+  var startBox = document.querySelector(".start");
   var userAnswer;
 
   //initializing the game
-  startGame();
+  //startGame();
+  
+  startBox.addEventListener("click", function startGame() {
+    if (startBox.style.display === "block") {
+      startBox.style.display = "none";
+      gameEl.style.display = "block";
+    } else {
+      startBox.style.display = "none";
+      gameEl.style.display = "block";
+    }
+    game();
+  });
+  
 
-  function startGame() {
+  function game() {
     for (var i = 0; i < questions.length; i++) {
       theQuestion.textContent = questions[i].question;
       a.textContent = choices[i][0];
       b.textContent = choices[i][1];
       c.textContent = choices[i][2];
-      d.textContent = choices[i][3];
-      
-      /* var choicesOfQuestionInArray = i;
-      for (var j = 0; j<choicesOfQuestionInArray;j++) {
-        a.textContent = choices[i][j];
-        b.textContent = choices[i][j];
-        c.textContent = choices[i][j];
-        d.textContent = choices[i][j];
+      d.textContent = choices[i][3]; 
+      //button user choosed
+      //wait for users selection
+      function check(x) {
+        var usersChoice=document.getElementById("#radio").checked = true;
+        usersChoice = usersChoice.value;
+        if (usersChoice=questions[i].answer) {
+          return true;
+        } else {
+          return false;
+        }
       }
-      */
-      /* //new div for question
-              var newDiv = document.createElement("div");
-              newDiv.textContent=theQuestion;
-              gameEl.appendChild(newDiv);
-             //new div for answers
-             var anotherDiv = document.createElement("div");
-              anotherDiv.textContent=choices[i].prompt;
-              gameEl.appendChild(anotherDiv);
-             
-             
-             // console.log(theQuestion);
-             // console.log(theAnswers);
-        */
-      /*   console.log(theQuestion);
-               console.log(theAnswers);
-       userAnswer = prompt("Enter letter of your answer: ")
- 
-       if (userAnswer === choices[i].answer) {
-         score++;
-         alert("Correct. Your score is now " + score);
-       } else {
-         score--;
-         alert("Incorrect. Your score is now " + score);
-       }
- */
-
+      //updates score, true for correct, false for incorrect
+      if (x=true){
+        score++;
+      } else {
+        score--;
+      }
+      //go to next question now
     }
+    //send score to highscores
+    console.log(score);
   }
+//function startGame() {
+
+  //if click event changeContent()
+//}
 
 
 
+//view highscores
+var hsLink = document.querySelector("#highscores");
+var viewScores = document.querySelector(".viewHighscores");
 
-
+hsLink.addEventListener("click", function showHighscorez() {
+  if (viewScores.style.display === "none") {
+    viewScores.style.display = "block";
+  } else {
+    viewScores.style.display = "none";
+  }
+});
 
 });

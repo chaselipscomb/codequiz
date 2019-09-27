@@ -20,6 +20,18 @@
     font-size: 30px;
     cursor: grabbing;
 }
+.viewHighscores {
+    border: 1px solid black;
+    width:200px;
+    height: auto;
+    position: fixed;
+    top:50px;
+    left: 20px;
+    float:left;
+    display: none;
+    padding: 10px;
+
+}
 #time {
     font-size: 30px;
     height: auto;
@@ -44,9 +56,9 @@
     position: absolute;
     top: 40%;
     left: 40%;
-    display: none;
     border: solid #000;
     border-width: 1 1px;
+    display: block;
 }
 .start:hover {
     background-color: rgb(230, 230, 117);
@@ -63,6 +75,7 @@
       margin: .5% 1%;
       border: solid #000;
       border-width: 1 1px;
+      display: none;
   }
   h1 {
       text-align: center;

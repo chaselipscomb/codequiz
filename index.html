@@ -11,18 +11,19 @@
 
 <body>
     <div id="highscores">View Highscores</div>
+    <div class="viewHighscores">List of Highscores:</div>
     <div id="time">Time: 855</div>
     <div class="container">
         <div class="start">Start Quiz</div>
         <div class="game">
             <h1 class="question">QUESTION</h1>
 
-            <div class="questionContent">
-                <div><input type="radio" id="myRadio"><span id="a">(a)</span></div>
-                <div><input type="radio" id="myRadio"><span id="b">(b)</span></div>
-                <div><input type="radio" id="myRadio"><span id="c">(c)</span></div>
-                <div><input type="radio" id="myRadio"><span id="d">(d)</span></div>
-            </div>
+            <form class="questionContent">
+                <div><input type="radio" value="0" id="radio"><span id="a">(a)</span></div>
+                <div><input type="radio" value="1" id="radio"><span id="b">(b)</span></div>
+                <div><input type="radio" value="2" id="radio"><span id="c">(c)</span></div>
+                <div><input type="radio" value="3" id="radio"><span id="d">(d)</span></div>
+            </form>
 
         </div>
         <script src="http://code.jquery.com/jquery-3.4.1.min.js"
