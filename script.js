@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  //array of question/answer objects
   var questions = [{
     question: "What do you put at the end of a line of code?",
     answer: 'd'
@@ -12,11 +13,30 @@ $(document).ready(function () {
     answer: 'a'
   }
   ];
+  var submit = document.querySelector("#submit");
+  submit.addEventListener("click", function(event){
+    event.preventDefault();
+    console.log("hi");
+    //getting choice of user
+    var checkedRadio= document.querySelector('.radio:checked');
+    var answer;
+    if (checkedRadio===null){
+      answer=-9;
+    } else {
+      answer = checkedRadio.value;
+    }
+    console.log(answer);
+    console.log("check if right");
+    currentIndex++;
+    game();
+    //clear radio
+  });
   //var choices = [
     //['$', ']', '.', ';'],
     //['&', '$', '#', '@'],
     //['JavaScript', 'Junior Systems', 'JaxSon', 'Not an abbreviation']
   //];
+  //array of answer choice objects
   var choices = [
     {
       a: '$',
@@ -36,10 +56,9 @@ $(document).ready(function () {
       c: 'JaxSon',
       d: 'Not an abbreviation'
     }];
-console.log(choices[0][2])
 
-  var score = 0;
   //get the elements by selectors
+  var currentIndex = 0;
   var theQuestion = document.querySelector(".question");
   var a = document.querySelector("#a");
   var b = document.querySelector("#b");
@@ -47,11 +66,9 @@ console.log(choices[0][2])
   var d = document.querySelector("#d");
   var gameEl = document.querySelector(".game");
   var startBox = document.querySelector(".start");
-  var userAnswer;
 
   //initializing the game
-  //startGame();
-  
+  //Game();
   startBox.addEventListener("click", function startGame() {
     if (startBox.style.display === "block") {
       startBox.style.display = "none";
@@ -63,19 +80,24 @@ console.log(choices[0][2])
     game();
   });
   
-
+//the game, after clicking start game
+var score = 0;
   function game() {
-    
-    for (var i=0; i<3; i++) {
-      theQuestion.textContent = questions[i].question;
-      a.textContent = choices[i].a;
-      b.textContent = choices[i].b;
-      c.textContent = choices[i].c;
-      d.textContent = choices[i].d; 
-      console.log(a,b,c,d);
+    //setTimeout(function() {
+      console.log(theQuestion,a,b,c,d);
+      //replaces previous question
+      theQuestion.textContent = questions[currentIndex].question;
+      //should change all choices to the new question
+      a.textContent = choices[currentIndex].a;
+      b.textContent = choices[currentIndex].b;
+      c.textContent = choices[currentIndex].c;
+      d.textContent = choices[currentIndex].d; 
+  
+      //logs the choices for all questions
+      console.log(theQuestion,a,b,c,d);
       //button user choosed
       //wait for users selection
-      function check(x) {
+     /* function check(x) {
         var usersChoice=document.getElementById("#radio").checked = true;
         usersChoice = usersChoice.value;
         if (usersChoice=questions[i].answer) {
@@ -90,16 +112,12 @@ console.log(choices[0][2])
       } else {
         score--;
       }
-      //go to next question now
- }
-    //send score to highscores
+     */
+      //go to next question now 
+    //save/send score to highscores
+    //display end game page
     console.log(score);
-  }
-//function startGame() {
-
-  //if click event changeContent()
-//}
-
+  }//, 3000);}
 
 
 //view highscores
