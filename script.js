@@ -12,12 +12,31 @@ $(document).ready(function () {
     answer: 'a'
   }
   ];
+  //var choices = [
+    //['$', ']', '.', ';'],
+    //['&', '$', '#', '@'],
+    //['JavaScript', 'Junior Systems', 'JaxSon', 'Not an abbreviation']
+  //];
   var choices = [
-    ['$', ']', '.', ';'],
-    ['&', '$', '#', '@'],
-    ['JavaScript', 'Junior Systems', 'JaxSon', 'Not an abbreviation'],
-  ];
-
+    {
+      a: '$',
+      b: ']',
+      c: '.',
+      d: ';'
+    },
+    {
+      a: '&',
+      b: '$',
+      c: '#',
+      d: '@'
+    },
+    {
+      a: 'JavaScript',
+      b: 'Junior Systems',
+      c: 'JaxSon',
+      d: 'Not an abbreviation'
+    }];
+console.log(choices[0][2])
 
   var score = 0;
   //get the elements by selectors
@@ -46,12 +65,14 @@ $(document).ready(function () {
   
 
   function game() {
-    for (var i = 0; i < questions.length; i++) {
+    
+    for (var i=0; i<3; i++) {
       theQuestion.textContent = questions[i].question;
-      a.textContent = choices[i][0];
-      b.textContent = choices[i][1];
-      c.textContent = choices[i][2];
-      d.textContent = choices[i][3]; 
+      a.textContent = choices[i].a;
+      b.textContent = choices[i].b;
+      c.textContent = choices[i].c;
+      d.textContent = choices[i].d; 
+      console.log(a,b,c,d);
       //button user choosed
       //wait for users selection
       function check(x) {
@@ -70,7 +91,7 @@ $(document).ready(function () {
         score--;
       }
       //go to next question now
-    }
+ }
     //send score to highscores
     console.log(score);
   }
