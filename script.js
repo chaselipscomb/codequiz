@@ -2,21 +2,37 @@ $(document).ready(function () {
   //array of question/answer objects
   var questions = [{
     question: "What do you put at the end of a line of code?",
-    answer: 'd'
+    answer: '3'
   },
   {
     question: "What is the Jquery symbol",
-    answer: 'b'
+    answer: '1'
   },
   {
     question: "What does JS stand for?",
-    answer: 'a'
+    answer: '0'
   }
   ];
+  var score = 0;
   var submit = document.querySelector("#submit");
   submit.addEventListener("click", function(event){
     event.preventDefault();
-    console.log("hi");
+    //endgame
+if (currentIndex===2) {
+  console.log(score);
+  console.log("game over");
+  var scorecard = document.querySelector(".scoreCard");
+  var percentage = document.querySelector("#percentage");
+  scorecard.style.display = "block";
+  gameEl.style.display = "none";
+  var scored=score/3*100
+  var scored = scored.toFixed(2);
+  //console.log(scored + "%");
+  percentage.textContent = scored+"%";
+  return;
+  //display endgame
+}
+    //console.log("hi");
     //getting choice of user
     var checkedRadio= document.querySelector('.radio:checked');
     var answer;
@@ -25,17 +41,22 @@ $(document).ready(function () {
     } else {
       answer = checkedRadio.value;
     }
-    console.log(answer);
-    console.log("check if right");
+    //console.log(answer);
+    //console.log("check if right");
     currentIndex++;
     game();
-    //clear radio
+    //compare answer and user answer. update score
+    if (answer==questions[currentIndex-1].answer) {
+      score++;
+    } else{ score;}
+    console.log(score);
+   
+//clear radio
+checkedRadio.checked=false;
+
+
   });
-  //var choices = [
-    //['$', ']', '.', ';'],
-    //['&', '$', '#', '@'],
-    //['JavaScript', 'Junior Systems', 'JaxSon', 'Not an abbreviation']
-  //];
+ 
   //array of answer choice objects
   var choices = [
     {
@@ -81,10 +102,8 @@ $(document).ready(function () {
   });
   
 //the game, after clicking start game
-var score = 0;
   function game() {
     //setTimeout(function() {
-      console.log(theQuestion,a,b,c,d);
       //replaces previous question
       theQuestion.textContent = questions[currentIndex].question;
       //should change all choices to the new question
@@ -93,30 +112,13 @@ var score = 0;
       c.textContent = choices[currentIndex].c;
       d.textContent = choices[currentIndex].d; 
   
-      //logs the choices for all questions
-      console.log(theQuestion,a,b,c,d);
-      //button user choosed
-      //wait for users selection
-     /* function check(x) {
-        var usersChoice=document.getElementById("#radio").checked = true;
-        usersChoice = usersChoice.value;
-        if (usersChoice=questions[i].answer) {
-          return true;
-        } else {
-          return false;
-        }
-      }
-      //updates score, true for correct, false for incorrect
-      if (x=true){
-        score++;
-      } else {
-        score--;
-      }
-     */
+    
+    
+     
       //go to next question now 
     //save/send score to highscores
     //display end game page
-    console.log(score);
+   
   }//, 3000);}
 
 
