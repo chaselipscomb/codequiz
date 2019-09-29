@@ -9,6 +9,7 @@
     height: auto;
     position: relative;
     padding: 5px;
+    width: 50%;
 }
 #highscores:hover {
     color: rgb(44, 44, 253);
@@ -22,7 +23,7 @@
 }
 .viewHighscores {
     border: 1px solid black;
-    width:200px;
+    width:10%;
     height: 50%;
     position: fixed;
     top:50px;
@@ -112,4 +113,48 @@
       top: 35%;
       left: 20%;
       
+  }
+  @media (max-width:550px){
+      #highscores {
+          position: fixed;
+          top: 80%;
+          width:100%;
+          text-align: center;
+      }
+      .viewHighscores{
+          position: fixed;
+          top: 88%;
+          width: 100%;
+          text-align: left;
+          padding: 5px;
+          height: 40px;
+          border:0px;
+      }
+      #time {
+          position: fixed;
+          top: 72%;
+          width: 100%;
+          text-align: center;
+          height: 30px;
+      }
+      .scoreCard {
+        position: absolute;
+        top: 35%;
+        left: 30%;
+        border: 1px solid black;
+        height:45%;
+        width:50%;
+        text-align: center;
+        padding:20px;
+        display:none;
+    }
+    .question {
+        font-size: 18px;
+    }
+    h1 {
+        top:10%;
+    }
+    .questionContent{
+        top:50%;
+    }
   }
