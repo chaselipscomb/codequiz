@@ -11,6 +11,10 @@ $(document).ready(function () {
   {
     question: "What does JS stand for?",
     answer: '0'
+  },
+  {
+    question: "What does JS stand for?",
+    answer: '0'
   }
   ];
   //set highscore board
@@ -25,27 +29,7 @@ $(document).ready(function () {
   var submit = document.querySelector("#submit");
   submit.addEventListener("click", function (event) {
     event.preventDefault();
-    //endgame
-    if (currentIndex === 2) {
-      console.log(score);
-      console.log("game over");
-      var scorecard = document.querySelector(".scoreCard");
-      var percentage = document.querySelector("#percentage");
-      scorecard.style.display = "block";
-      gameEl.style.display = "none";
-      var scored = score / 3 * 100
-      var scored = scored.toFixed(2);
-      //console.log(scored + "%");
-      percentage.textContent = scored + "%";
 
-      //store/get/creatediv and append it to scoreboard
-      var viewScores = document.querySelector(".viewHighscores");
-      localStorage.setItem("scored", JSON.stringify(scored));
-      newDiv = document.createElement("div");
-      newDiv.textContent = scored;
-      viewScores.appendChild(newDiv);
-    }
-    //console.log("hi");
     //getting choice of user
     var checkedRadio = document.querySelector('.radio:checked');
     var answer;
@@ -68,6 +52,28 @@ $(document).ready(function () {
     checkedRadio.checked = false;
 
 
+    //endgame
+    if (currentIndex === 3) {
+      console.log(score);
+      console.log("game over");
+      var scorecard = document.querySelector(".scoreCard");
+      var percentage = document.querySelector("#percentage");
+      scorecard.style.display = "block";
+      gameEl.style.display = "none";
+      var scored = score / 3 * 100
+      var scored = scored.toFixed(2);
+      //console.log(scored + "%");
+      percentage.textContent = scored + "%";
+
+      //store/get/creatediv and append it to scoreboard
+      var viewScores = document.querySelector(".viewHighscores");
+      localStorage.setItem("scored", JSON.stringify(scored));
+      newDiv = document.createElement("div");
+      newDiv.textContent = scored;
+      viewScores.appendChild(newDiv);
+    }
+    //console.log("hi");
+    
   });
 
   //array of answer choice objects
@@ -83,6 +89,12 @@ $(document).ready(function () {
       b: '$',
       c: '#',
       d: '@'
+    },
+    {
+      a: 'JavaScript',
+      b: 'Junior Systems',
+      c: 'JaxSon',
+      d: 'Not an abbreviation'
     },
     {
       a: 'JavaScript',
