@@ -111,6 +111,36 @@ $(document).ready(function () {
       startBox.style.display = "none";
       gameEl.style.display = "block";
     }
+    var x = document.getElementById("time");
+      setTimeout(function(){ x.textContent = "0 seconds" }, 15000);
+      setTimeout(function(){ x.textContent = "1 seconds" }, 14000);
+      setTimeout(function(){ x.textContent = "2 seconds" }, 13000);
+      setTimeout(function(){ x.textContent = "3 seconds" }, 12000);
+      setTimeout(function(){ x.textContent = "4 seconds" }, 11000);
+      setTimeout(function(){ x.textContent = "5 seconds" }, 10000);
+      setTimeout(function(){ x.textContent = "6 seconds" }, 9000);
+      setTimeout(function(){ x.textContent = "7 seconds" }, 8000);
+      setTimeout(function(){ x.textContent = "8 seconds" }, 7000);
+      setTimeout(function(){ x.textContent = "9 seconds" }, 6000);
+      setTimeout(function(){ x.textContent = "10 seconds" }, 5000);
+      setTimeout(function(){ x.textContent = "11 seconds" }, 4000);
+      setTimeout(function(){ x.textContent = "12 seconds" }, 3000);
+      setTimeout(function(){ x.textContent = "13 seconds" }, 2000);
+      setTimeout(function(){ x.textContent = "14 seconds" }, 1000);
+
+    setTimeout(function(){ 
+      
+      
+      var scorecard = document.querySelector(".scoreCard");
+      if (currentIndex<3){
+      gameEl.style.display = "none";
+      scorecard.style.display = "block";
+      var percentage = document.querySelector("#percentage");
+      percentage.style.fontSize = "12px";
+      percentage.textContent = "Time is up, finish the game in time for a score";
+    }
+  else {return;}
+    }, 15000);
     game();
   });
 
