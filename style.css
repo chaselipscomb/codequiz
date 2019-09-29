@@ -23,7 +23,7 @@
 .viewHighscores {
     border: 1px solid black;
     width:200px;
-    height: auto;
+    height: 50%;
     position: fixed;
     top:50px;
     left: 20px;

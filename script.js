@@ -13,31 +13,44 @@ $(document).ready(function () {
     answer: '0'
   }
   ];
+  //set highscore board
+  var viewScores = document.querySelector(".viewHighscores");
+  if (viewScores.textContent = null) { } else {
+    //viewScores.textContent = parseInt(localStorage.getItem('scored'));
+    let div = document.createElement('div');
+    div.innerHTML = JSON.parse(localStorage.getItem('scored'))
+    viewScores.appendChild(div);
+  }
   var score = 0;
   var submit = document.querySelector("#submit");
-  submit.addEventListener("click", function(event){
+  submit.addEventListener("click", function (event) {
     event.preventDefault();
     //endgame
-if (currentIndex===2) {
-  console.log(score);
-  console.log("game over");
-  var scorecard = document.querySelector(".scoreCard");
-  var percentage = document.querySelector("#percentage");
-  scorecard.style.display = "block";
-  gameEl.style.display = "none";
-  var scored=score/3*100
-  var scored = scored.toFixed(2);
-  //console.log(scored + "%");
-  percentage.textContent = scored+"%";
-  return;
-  //display endgame
-}
+    if (currentIndex === 2) {
+      console.log(score);
+      console.log("game over");
+      var scorecard = document.querySelector(".scoreCard");
+      var percentage = document.querySelector("#percentage");
+      scorecard.style.display = "block";
+      gameEl.style.display = "none";
+      var scored = score / 3 * 100
+      var scored = scored.toFixed(2);
+      //console.log(scored + "%");
+      percentage.textContent = scored + "%";
+
+      //store/get/creatediv and append it to scoreboard
+      var viewScores = document.querySelector(".viewHighscores");
+      localStorage.setItem("scored", JSON.stringify(scored));
+      newDiv = document.createElement("div");
+      newDiv.textContent = scored;
+      viewScores.appendChild(newDiv);
+    }
     //console.log("hi");
     //getting choice of user
-    var checkedRadio= document.querySelector('.radio:checked');
+    var checkedRadio = document.querySelector('.radio:checked');
     var answer;
-    if (checkedRadio===null){
-      answer=-9;
+    if (checkedRadio === null) {
+      answer = -9;
     } else {
       answer = checkedRadio.value;
     }
@@ -46,17 +59,17 @@ if (currentIndex===2) {
     currentIndex++;
     game();
     //compare answer and user answer. update score
-    if (answer==questions[currentIndex-1].answer) {
+    if (answer == questions[currentIndex - 1].answer) {
       score++;
-    } else{ score;}
+    } else { score; }
     console.log(score);
-   
-//clear radio
-checkedRadio.checked=false;
+
+    //clear radio
+    checkedRadio.checked = false;
 
 
   });
- 
+
   //array of answer choice objects
   var choices = [
     {
@@ -100,38 +113,38 @@ checkedRadio.checked=false;
     }
     game();
   });
-  
-//the game, after clicking start game
+
+  //the game, after clicking start game
   function game() {
     //setTimeout(function() {
-      //replaces previous question
-      theQuestion.textContent = questions[currentIndex].question;
-      //should change all choices to the new question
-      a.textContent = choices[currentIndex].a;
-      b.textContent = choices[currentIndex].b;
-      c.textContent = choices[currentIndex].c;
-      d.textContent = choices[currentIndex].d; 
-  
-    
-    
-     
-      //go to next question now 
+    //replaces previous question
+    theQuestion.textContent = questions[currentIndex].question;
+    //should change all choices to the new question
+    a.textContent = choices[currentIndex].a;
+    b.textContent = choices[currentIndex].b;
+    c.textContent = choices[currentIndex].c;
+    d.textContent = choices[currentIndex].d;
+
+
+
+
+    //go to next question now 
     //save/send score to highscores
     //display end game page
-   
+
   }//, 3000);}
 
 
-//view highscores
-var hsLink = document.querySelector("#highscores");
-var viewScores = document.querySelector(".viewHighscores");
+  //view highscores
+  var hsLink = document.querySelector("#highscores");
+  var viewScores = document.querySelector(".viewHighscores");
 
-hsLink.addEventListener("click", function showHighscorez() {
-  if (viewScores.style.display === "none") {
-    viewScores.style.display = "block";
-  } else {
-    viewScores.style.display = "none";
-  }
-});
+  hsLink.addEventListener("click", function showHighscorez() {
+    if (viewScores.style.display === "none") {
+      viewScores.style.display = "block";
+    } else {
+      viewScores.style.display = "none";
+    }
+  });
 
 });
