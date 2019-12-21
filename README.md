@@ -21,4 +21,5 @@ Answer the questions before the timer runs out.
 
 ### Front Page
 ![Screenshot](end.PNG)
+
 When the quiz ends, enter initials and submit to leaderboard
