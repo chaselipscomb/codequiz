@@ -23,3 +23,5 @@ Answer the questions before the timer runs out.
 ![Screenshot](end.PNG)
 
 When the quiz ends, enter initials and submit to leaderboard
+
+https://chaselipscomb.github.io/codequiz/
