@@ -12,17 +12,19 @@
   <body>
     <div class="scores"><a href="highscores.html">View Highscores</a></div>
 
-    <div class="timer">Time: <span id="time">0</span></div>
+    <div class="timer">Time Remaining: <span id="time">0</span></div>
 
     <div class="wrapper">
       <div id="start-screen" class="start">
-        <h1>Coding Quiz Challenge</h1>
+        <h1>The Code Quiz</h1>
         <p>
           Try to answer the following code-related questions within the time
           limit. Keep in mind that incorrect answers will penalize your
           score/time by ten seconds!
+          Answer questiosns relative to the JavaScript language within the time frame. 
+          The result is based on a two factors: score and time taken to complete the quiz.
         </p>
-        <button id="start">Start Quiz</button>
+        <button id="start">Begin</button>
       </div>
 
       <div id="questions" class="hide">
@@ -31,7 +33,7 @@
       </div>
 
       <div id="end-screen" class="hide">
-        <h2>All done!</h2>
+        <h2>Completed</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
         <p>
           Enter initials: <input type="text" id="initials" max="3" />
@@ -46,42 +48,3 @@
     <script src="./assets/js/logic.js"></script>
   </body>
 </html>
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-
-<body>
-    <div id="highscores">View score</div>
-    <div class="viewHighscores"></div>
-    <div id="time">15 seconds </div>
-    <div class="container">
-        <div class="start">Start Quiz</div>
-        <div class="game">
-            <h1 class="question">QUESTION</h1>
-
-            <form class="questionContent">
-                <div><input type="radio" value="0" class="radio" name="answer"><span id="a">(a)</span></div>
-                <div><input type="radio" value="1" class="radio" name="answer"><span id="b">(b)</span></div>
-                <div><input type="radio" value="2" class="radio" name="answer"><span id="c">(c)</span></div>
-                <div><input type="radio" value="3" class="radio" name="answer"><span id="d">(d)</span></div>
-                <button id="submit">Submit</button>
-            </form> 
-        </div>
-        <div class="scoreCard">score
-            <div id="percentage"></div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="script.js"></script>
-</body>
-
-</html> -->
